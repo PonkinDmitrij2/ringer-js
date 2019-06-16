@@ -1,0 +1,19 @@
+{
+  "name": "ringer",
+  "version": "1.0.0",
+  "description": "Educational javascript project for working out interaction with HTMLMediaElement",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PonkinDmitrij2/ringer-js.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PonkinDmitrij2/ringer-js/issues"
+  },
+  "homepage": "https://github.com/PonkinDmitrij2/ringer-js#readme"
+}
