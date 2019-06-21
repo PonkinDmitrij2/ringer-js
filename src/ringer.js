@@ -17,7 +17,7 @@ Ringer.prototype.stop = function stop() {
   this.playPromise
     .then(() => {
       this.audio.pause();
-      clearTimeout(this.timer);
+      clearInterval(this.timer);
     })
     .catch((error) => console.error(error));
 };
