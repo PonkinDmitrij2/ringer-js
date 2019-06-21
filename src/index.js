@@ -16,7 +16,9 @@ const playHandler = () => {
 };
 
 const stopHandler = () => {
-  ringer.stop();
+  if (ringer) {
+    ringer.stop();
+  }
 };
 
 startPlay.addEventListener('click', playHandler);
