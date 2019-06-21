@@ -6,10 +6,11 @@ function Ringer({ audio, interval }) {
 Ringer.prototype.start = function start() {
   const run = () => {
     this.playPromise = this.audio.play();
-    this.timer = setTimeout(run, this.interval);
   };
 
   run();
+
+  this.timer = setInterval(run, this.interval);
 };
 
 Ringer.prototype.stop = function stop() {
