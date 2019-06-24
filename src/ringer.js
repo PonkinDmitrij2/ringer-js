@@ -10,15 +10,14 @@ Ringer.prototype.start = function start() {
 
   run();
 
-  this.timer = setInterval(run, this.interval);
+  this.audio.addEventListener('ended', () => {
+    setTimeout(run, this.interval);
+  });
 };
 
 Ringer.prototype.stop = function stop() {
   this.playPromise
-    .then(() => {
-      this.audio.pause();
-      clearInterval(this.timer);
-    })
+    .then(() => this.audio.pause())
     .catch((error) => console.error(error));
 };
 
