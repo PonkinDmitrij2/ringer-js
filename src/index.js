@@ -11,7 +11,10 @@ const playHandler = () => {
     interval: Number(document.querySelector('.field--interval').value),
   };
 
-  ringer = new Ringer(options);
+  if (!ringer) {
+    ringer = new Ringer(options);
+  }
+
   ringer.start();
 };
 
