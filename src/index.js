@@ -2,8 +2,12 @@ import Ringer from './ringer.js';
 
 const startPlay = document.querySelector('.btn--start');
 const stopPlay = document.querySelector('.btn--stop');
-
+const errorElem = document.querySelector('.error-message');
 let ringer;
+
+const showError = (text = 'Playback error!') => {
+  errorElem.textContent = text;
+};
 
 const playHandler = () => {
   const options = {
@@ -15,7 +19,7 @@ const playHandler = () => {
     ringer = new Ringer(options);
   }
 
-  ringer.start();
+  ringer.start(showError);
 };
 
 const stopHandler = () => {

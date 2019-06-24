@@ -3,12 +3,17 @@ function Ringer({ audio, interval }) {
   this.interval = interval;
 }
 
-Ringer.prototype.start = function start() {
+Ringer.prototype.start = function start(error) {
   const run = () => {
     this.playPromise = this.audio.play();
   };
 
   run();
+
+  this.playPromise.catch((e) => {
+    error();
+    console.error(e);
+  });
 
   this.audio.addEventListener('ended', () => {
     setTimeout(run, this.interval);
@@ -18,7 +23,7 @@ Ringer.prototype.start = function start() {
 Ringer.prototype.stop = function stop() {
   this.playPromise
     .then(() => this.audio.pause())
-    .catch((error) => console.error(error));
+    .catch((e) => console.error(e));
 };
 
 export default Ringer;
